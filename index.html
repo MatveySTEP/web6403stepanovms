@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мир путешествий</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+<header class="site-header">
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="tours.html">Туры</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero-section">
+        <h1>Добро пожаловать в мир путешествий!</h1>
+        <h2>Здесь вы найдете самые удивительные туры по всему миру.</h2>
+        <!-- <a href="tours.html" class="cta-button">
+            <button type="button">Подробнее</button>
+        </a> -->
+    </section>
+
+    <section class="featured-tours">
+        <h2>Наше предложение:</h2>
+        <div class="tour-card">
+            <img src="https://gagarin.mos.ru/9379f5000f2a3baa1a78a4227da3286f.jpg" alt="Экскурсия по городу" style="width: 500px; height: 500px;">
+            <h3>Экскурсия по городу</h3>
+            <p>Путешествие по интереснейшим местам города. Вы узнаете историю и увидите самые красивые достопримечательности.</p>
+        </div>
+
+        <div class="tour-card">
+            <img src="https://www.bstu.ru/shared/attachments/238411" alt="Тур по стране" style="width: 500px; height: 450px;">
+            <h3>Тур по стране</h3>
+            <p>Путешествие по самым красивым и интересным местам страны. Вы увидите природные чудеса и культурные сокровища.</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>Что говорят наши клиенты:</h2>
+        <blockquote>
+            <p>Это было самое потрясающее путешествие моей жизни! Спасибо за организацию.</p>
+            <cite>Анна С.</cite>
+        </blockquote>
+        <blockquote>
+            <p>Компания "Мир путешествий" всегда готовы помочь. Отличный сервис!</p>
+            <cite>Иван И.</cite>
+        </blockquote>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2023 Мир путешествий. Все права защищены.</p>
+</footer>
+
+<script>
+    const tourButtons = document.querySelectorAll('.tour-button');
+
+    tourButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('Подробнее о туре будет добавлено позже!');
+        });
+    });
+</script>
+</body>
+</html>
