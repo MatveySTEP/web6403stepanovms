@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Контакты</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -17,37 +17,43 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Контакты</h1>
-        <address>
-            <p>Адрес: ул. Путешественников, д. 123</p>
-            <p>Телефон: +7 (495) 123-45-67</p>
-            <p>Email: info@mirputeshestv.com</p>
-        </address>
+    <main class="contacts-page">
+			<div class="contacts-page__wrapper">
+				<div class="contacts-page__column">
+					<h1>Контакты</h1>
+					<address>
+							<p>Адрес: ул. Путешественников, д. 123</p>
+							<p>Телефон: +7 (495) 123-45-67</p>
+							<p>Email: info@mirputeshestv.com</p>
+					</address>
+				</div>
+				<div class="contacts-page__column">
+					<h2>Часы работы</h2>
+					<table>
+							<thead>
+									<tr>
+											<th>День недели</th>
+											<th>Часы работы</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr>
+											<td>Понедельник - Пятница</td>
+											<td>9:00 - 18:00</td>
+									</tr>
+									<tr>
+											<td>Суббота</td>
+											<td>10:00 - 16:00</td>
+									</tr>
+									<tr>
+											<td>Воскресенье</td>
+											<td>Выходной</td>
+									</tr>
+							</tbody>
+					</table>
+				</div>
+			</div>
 
-        <h2>Часы работы</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>День недели</th>
-                    <th>Часы работы</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Понедельник - Пятница</td>
-                    <td>9:00 - 18:00</td>
-                </tr>
-                <tr>
-                    <td>Суббота</td>
-                    <td>10:00 - 16:00</td>
-                </tr>
-                <tr>
-                    <td>Воскресенье</td>
-                    <td>Выходной</td>
-                </tr>
-            </tbody>
-        </table>
     </main>
 
     <footer>
