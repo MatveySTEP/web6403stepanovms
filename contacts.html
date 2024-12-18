@@ -53,11 +53,55 @@
 					</table>
 				</div>
 			</div>
-
+		<div>
+			<h2>Напишите нам</h2>
+			<input type="text" name="name" placeholder="Ваше имя" required>
+			<input type="email" name="email" placeholder="Ваш email" required>
+			<textarea name="message" rows="5" cols="30" placeholder="Ваше сообщение" required></textarea>
+			<button type="submit" onclick="sendPostRequest()">Отправить</button>
+		</div>
+		<div class="contacts-page__error">
+			<p>Возникла ошибка при отправке</p>
+		</div>
     </main>
 
     <footer>
         <p>&copy; 2023 Мир путешествий</p>
     </footer>
+	<script>
+		async function sendPostRequest() {
+			try {
+				const response = await fetch("http://localhost:8000/contact", {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						"name": document.getElementsByName("name")[0].value
+					}),
+				});
+
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const result = await response.json();
+				console.log('Success:', result);
+				return result;
+			} catch (error) {
+				console.error('Error:', error);
+				throw error;
+			}
+		}
+
+		// Usage example
+		sendPostRequest('https://api.example.com/endpoint', { key: 'value' })
+				.then(result => {
+					// Handle the result
+				})
+				.catch(error => {
+					// Handle the error
+				});
+	</script>
 </body>
 </html>
