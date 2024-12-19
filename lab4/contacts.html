@@ -81,7 +81,7 @@
 	<script>
 		document.getElementsByClassName('feedback-form__form')[0].addEventListener('submit', function(e) {
 			e.preventDefault();
-			fetch('http://localhost:8000/contact-fail', {
+			fetch('http://localhost:8000/contact', {
 				method: 'POST',
 				body: JSON.stringify({
 					name: document.getElementById('name').value,
