@@ -1,0 +1,14 @@
+{
+  "/contact": {
+    "post": {
+      "success": true,
+      "message": "Ваше сообщение успешно отправлено"
+    }
+  },
+  "/contact-fail": {
+    "post": {
+      "success": false,
+      "message": "Проверьте правильность введенных данных"
+    }
+  }
+}

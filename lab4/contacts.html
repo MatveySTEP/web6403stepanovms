@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="tours.html">Туры</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contacts-page">
+			<div class="contacts-page__wrapper">
+				<div class="contacts-page__column">
+					<h1>Контакты</h1>
+					<address>
+							<p>Адрес: ул. Путешественников, д. 123</p>
+							<p>Телефон: +7 (495) 123-45-67</p>
+							<p>Email: info@mirputeshestv.com</p>
+					</address>
+				</div>
+				<div class="contacts-page__column">
+					<h2>Часы работы</h2>
+					<table>
+							<thead>
+									<tr>
+											<th>День недели</th>
+											<th>Часы работы</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr>
+											<td>Понедельник - Пятница</td>
+											<td>9:00 - 18:00</td>
+									</tr>
+									<tr>
+											<td>Суббота</td>
+											<td>10:00 - 16:00</td>
+									</tr>
+									<tr>
+											<td>Воскресенье</td>
+											<td>Выходной</td>
+									</tr>
+							</tbody>
+					</table>
+				</div>
+			</div>
+
+		<div class="feedback-form">
+			<h2>Свяжитесь с нами</h2>
+			<form class="feedback-form__form">
+				<div class="mb-3 form-group">
+					<label for="name" class="form-label">Ваше имя:</label>
+					<input type="text" class="form-control" id="name" required>
+				</div>
+				<div class="mb-3 form-group">
+					<label for="email" class="form-label">E-mail:</label>
+					<input type="email" class="form-control" id="email" required>
+				</div>
+				<div class="mb-3 form-group">
+					<label for="message" class="form-label">Сообщение:</label>
+					<input type="text" class="form-control" id="message" required>
+				</div>
+				<button type="submit" class="btn-primary">Отправить</button>
+			</form>
+		</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Мир путешествий</p>
+    </footer>
+
+	<script>
+		document.getElementsByClassName('feedback-form__form')[0].addEventListener('submit', function(e) {
+			e.preventDefault();
+			fetch('http://localhost:8000/contact-fail', {
+				method: 'POST',
+				body: JSON.stringify({
+					name: document.getElementById('name').value,
+					email: document.getElementById('email').value,
+					message: document.getElementById('message').value
+				}),
+			})
+					.then(response => {
+						response.json().then(res => {
+							console.log(res)
+							switch (res.success) {
+								case true:
+									alert('Спасибо, ваше сообщение было отправлено')
+									this.reset()
+									break
+								default:
+									alert('Произошла ошибка: ' + res.message)
+							}
+						})
+					}).catch(error => {
+				console.error(error)
+				alert('Произошла ошибка при отправке запроса. Пожалуйста, попробуйте еще раз.');
+			})
+		});
+	</script>
+</body>
+</html>
